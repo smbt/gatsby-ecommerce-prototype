@@ -1,7 +1,7 @@
 // Node modules
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { graphql } from 'gatsby'
-import { Grid, Box } from '@material-ui/core'
+import { Grid, Box, CircularProgress } from '@material-ui/core'
 import { Helmet } from 'react-helmet'
 import BackgroundImage from 'gatsby-background-image'
 
@@ -11,6 +11,8 @@ import Sku from 'components/Sku'
 
 // Types
 import { Sku as SkuType } from 'types/stripe/Sku'
+import { Movie } from '../types/Movie'
+import MoviePreview from '../components/MoviePreview'
 
 // Data
 export const data = graphql`
@@ -65,10 +67,22 @@ export default (props: Props) => {
         }
     })
 
+
+    const [movieResults, setMovieResults] = useState<Movie[]>([])
+    const [search, setSearch] = useState<string>('')
+
     useEffect(() => {
-        console.log('####')
-        console.log(props.data.bannerImage.childImageSharp.fluid)
-    })
+        const url: string = 'http://www.omdbapi.com/?apikey=' + process.env.GATSBY_OMDB_API_KEY + '&s=' + search
+        fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                setMovieResults(data.Search)
+                console.log(data)
+            })
+    }, [search])
+
+
+
     return (
         <>
             <Helmet>
@@ -89,6 +103,33 @@ export default (props: Props) => {
                         )}
                     </Grid>
                 </Box>
+                <div style={{marginTop: 50}}>
+                    <h2>Not a fan of books? Use our live search to find interesting movies to watch:</h2>
+                    <div style={{textAlign: 'center', marginBottom: 50}}>
+                        <input
+                            value={search}
+                            onChange={event => setSearch(event.target.value)}
+                            style={{
+                                marginTop: 50,
+                                marginBottom: 50,
+                                padding: 10,
+                                width: 200,
+                            }}
+                            placeholder={'type a movie title'}
+                        />
+                        <Grid container spacing={2} style={{ justifyContent: 'center' }}>
+                            {
+                                movieResults ?
+                                    movieResults.map((movie: Movie) => {
+                                        return <MoviePreview movie={movie}/>
+                                    })
+                                    : search
+                                    ? <CircularProgress/>
+                                    : <div>Please input a search</div>
+                            }
+                        </Grid>
+                    </div>
+                </div>
             </Layout>
         </>
     )

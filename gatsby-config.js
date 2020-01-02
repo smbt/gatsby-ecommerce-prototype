@@ -87,26 +87,5 @@ module.exports = {
                 },
             },
         },
-        {
-            resolve: `gatsby-source-twitter`,
-            options: {
-                credentials: {
-                    consumer_key: process.env.TWITTER_CONSUMER_PUBLIC_KEY,
-                    consumer_secret: process.env.TWITTER_CONSUMER_SECRET_KEY,
-                    bearer_token: process.env.GATSBY_TWITTER_BEARER_TOKEN,
-                },
-                queries: {
-                    allTweets: {
-                        endpoint: "statuses/user_timeline",
-                        params: {
-                            screen_name: "EcommerceGatsby",
-                            include_rts: false,
-                            exclude_replies: true,
-                            tweet_mode: "extended",
-                        },
-                    },
-                },
-            },
-        },
     ],
 }
