@@ -1,7 +1,7 @@
 // Node modules
 import React, { useEffect, useState } from 'react'
 import { graphql } from 'gatsby'
-import { Grid, Box, CircularProgress } from '@material-ui/core'
+import { Grid, CircularProgress } from '@material-ui/core'
 import { Helmet } from 'react-helmet'
 import BackgroundImage from 'gatsby-background-image'
 
@@ -11,8 +11,8 @@ import Sku from 'components/Sku'
 
 // Types
 import { Sku as SkuType } from 'types/stripe/Sku'
-import { Movie } from '../types/Movie'
-import MoviePreview from '../components/MoviePreview'
+import { Movie } from 'types/Movie'
+import MoviePreview from 'components/MoviePreview'
 
 // Data
 export const data = graphql`
@@ -52,6 +52,9 @@ interface Props {
 }
 
 export default (props: Props) => {
+    const [movieResults, setMovieResults] = useState<Movie[]>([])
+    const [search, setSearch] = useState<string>('')
+
     useEffect(() => {
         // @ts-ignore
         if (window.netlifyIdentity) {
@@ -67,9 +70,6 @@ export default (props: Props) => {
         }
     })
 
-
-    const [movieResults, setMovieResults] = useState<Movie[]>([])
-    const [search, setSearch] = useState<string>('')
 
     useEffect(() => {
         const url: string = 'http://www.omdbapi.com/?apikey=' + process.env.GATSBY_OMDB_API_KEY + '&s=' + search
@@ -94,7 +94,7 @@ export default (props: Props) => {
             />
             <Layout>
                 <h1>eCommerce Prototype</h1>
-                <Box>
+                <div>
                     <Grid container spacing={2} justify={'center'}>
                         {props.data.allStripeSku.edges.map(
                             (edge: { node: SkuType }) => (
@@ -102,10 +102,10 @@ export default (props: Props) => {
                             ),
                         )}
                     </Grid>
-                </Box>
-                <div style={{marginTop: 50}}>
+                </div>
+                <div style={{ marginTop: 50 }}>
                     <h2>Not a fan of books? Use our live search to find interesting movies to watch:</h2>
-                    <div style={{textAlign: 'center', marginBottom: 50}}>
+                    <div style={{ textAlign: 'center', marginBottom: 50 }}>
                         <input
                             value={search}
                             onChange={event => setSearch(event.target.value)}

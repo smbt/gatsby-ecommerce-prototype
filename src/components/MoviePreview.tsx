@@ -17,7 +17,10 @@ const MoviePreview = (props: { movie: Movie }) => {
         <div
             style={{ marginBottom: 20, padding: 10, border: '1px solid #ccc', textAlign: 'center' }}
         >
-            <img src={movie.Poster} alt={movie.Title} width={100} style={{ marginBottom: 10 }}/>
+            {movie.Poster !== 'N/A'
+                ? <img src={movie.Poster} alt={movie.Title} width={100} style={{ marginBottom: 10 }}/>
+                : null
+            }
             <div>{movie.Title} ({movie.Year})</div>
             <div style={{ color: '#aaa', fontSize: 14, marginBottom: 20 }}>{movie.Type}</div>
             <button>
