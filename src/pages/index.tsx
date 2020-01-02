@@ -94,6 +94,8 @@ export default (props: Props) => {
             />
             <Layout>
                 <h1>eCommerce Prototype</h1>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem ducimus harum ipsam magnam qui soluta voluptates. Distinctio dolorem harum, modi nobis optio repellat sequi? Accusamus adipisci aliquam assumenda debitis enim in laborum mollitia nam! Assumenda culpa cupiditate, ea et impedit ipsa iure magnam maxime nemo neque nesciunt nobis provident, repudiandae!
+                <h2>Take a look at the books we have in stock</h2>
                 <div>
                     <Grid container spacing={2} justify={'center'}>
                         {props.data.allStripeSku.edges.map(
@@ -104,7 +106,7 @@ export default (props: Props) => {
                     </Grid>
                 </div>
                 <div style={{ marginTop: 50 }}>
-                    <h2>Not a fan of books? Use our live search to find interesting movies to watch:</h2>
+                    <h2>Not a fan of books? Use our live search to find interesting movies to watch</h2>
                     <div style={{ textAlign: 'center', marginBottom: 50 }}>
                         <input
                             value={search}
@@ -125,7 +127,7 @@ export default (props: Props) => {
                                     })
                                     : search
                                     ? <CircularProgress/>
-                                    : <div>Please input a search</div>
+                                    : null
                             }
                         </Grid>
                     </div>

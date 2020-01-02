@@ -11,7 +11,7 @@ const ContactPage = () => {
     const [message, setMessage] = useState<string>('')
 
     return (
-        <Layout>
+        <Layout footerPosition={'absolute'}>
             <h1> Contact us </h1>
             <Container maxWidth={'sm'}>
                 <form
