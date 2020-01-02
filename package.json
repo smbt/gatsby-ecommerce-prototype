@@ -1,0 +1,56 @@
+{
+  "name": "playground-gatsby-ecommerce",
+  "private": true,
+  "description": "playground-gatsby-ecommerce",
+  "version": "0.1.0",
+  "author": "Simon Brandt <simon_brandt@gmx.de>",
+  "dependencies": {
+    "@material-ui/core": "^4.3.3",
+    "gatsby": "^2.13.73",
+    "gatsby-background-image": "^0.9.12",
+    "gatsby-image": "^2.2.10",
+    "gatsby-plugin-alias-imports": "^1.0.5",
+    "gatsby-plugin-manifest": "^2.2.6",
+    "gatsby-plugin-material-ui": "^2.1.6",
+    "gatsby-plugin-offline": "^2.2.7",
+    "gatsby-plugin-playground": "^1.0.6",
+    "gatsby-plugin-react-helmet": "^3.1.4",
+    "gatsby-plugin-sharp": "^2.2.13",
+    "gatsby-plugin-stripe": "^1.2.2",
+    "gatsby-source-filesystem": "^2.1.18",
+    "gatsby-source-graphql": "^2.1.25",
+    "gatsby-source-stripe": "^3.0.3",
+    "gatsby-transformer-remark": "^2.6.19",
+    "gatsby-transformer-sharp": "^2.2.7",
+    "prop-types": "^15.7.2",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-helmet": "^5.2.1"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.2",
+    "@types/react-helmet": "^5.0.9",
+    "gatsby-plugin-typescript": "^2.1.5",
+    "prettier": "^1.18.2",
+    "tslint": "^5.19.0"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/smbt/playground-gatsby-ecommerce"
+  },
+  "bugs": {
+    "url": "https://github.com/smbt/playground-gatsby-ecommerce/issues"
+  }
+}
