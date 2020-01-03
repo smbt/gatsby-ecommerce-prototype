@@ -27,7 +27,7 @@ const ContactPage = () => {
                     />
                     <br/>
                     <TextField
-                        label={'E-mail'}
+                        label={'Email'}
                         value={email}
                         onChange={e => setEmail(e.target.value)}
                         fullWidth
