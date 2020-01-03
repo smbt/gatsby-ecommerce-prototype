@@ -15,7 +15,7 @@ const ContactPage = () => {
             <h1> Contact us </h1>
             <Container maxWidth={'sm'}>
                 <form
-                    action={'https://formspree.io/simon_foster116@yahoo.de'}
+                    action={'https://formspree.io/simon.brandt@htw-dresden.de'}
                     method={'POST'}
                 >
                     <TextField
