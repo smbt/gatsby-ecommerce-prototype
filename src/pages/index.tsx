@@ -82,7 +82,6 @@ export default (props: Props) => {
     }, [search])
 
 
-
     return (
         <>
             <Helmet>
@@ -94,8 +93,14 @@ export default (props: Props) => {
             />
             <Layout>
                 <h1>eCommerce Prototype</h1>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem ducimus harum ipsam magnam qui soluta voluptates. Distinctio dolorem harum, modi nobis optio repellat sequi? Accusamus adipisci aliquam assumenda debitis enim in laborum mollitia nam! Assumenda culpa cupiditate, ea et impedit ipsa iure magnam maxime nemo neque nesciunt nobis provident, repudiandae!
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem ducimus harum ipsam magnam qui soluta
+                voluptates. Distinctio dolorem harum, modi nobis optio repellat sequi? Accusamus adipisci aliquam
+                assumenda debitis enim in laborum mollitia nam! Assumenda culpa cupiditate, ea et impedit ipsa iure
+                magnam maxime nemo neque nesciunt nobis provident, repudiandae!
                 <h2>Take a look at the books we have in stock</h2>
+                <p style={{ textAlign: 'center' }}>
+                    Book data is stored at Stripe, was queried during build time and statically built into this site.
+                </p>
                 <div>
                     <Grid container spacing={2} justify={'center'}>
                         {props.data.allStripeSku.edges.map(
@@ -107,6 +112,10 @@ export default (props: Props) => {
                 </div>
                 <div style={{ marginTop: 50 }}>
                     <h2>Not a fan of books? Use our live search to find interesting movies to watch</h2>
+                    <p style={{ textAlign: 'center' }}>
+                        The media data in this section is dynamically pulled at runtime from <a
+                        href="www.omdbapi.com">www.omdbapi.com</a>.
+                    </p>
                     <div style={{ textAlign: 'center', marginBottom: 50 }}>
                         <input
                             value={search}
