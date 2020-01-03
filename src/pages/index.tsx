@@ -72,7 +72,7 @@ export default (props: Props) => {
 
 
     useEffect(() => {
-        const url: string = 'http://www.omdbapi.com/?apikey=' + process.env.GATSBY_OMDB_API_KEY + '&s=' + search
+        const url: string = 'https://www.omdbapi.com/?apikey=' + process.env.GATSBY_OMDB_API_KEY + '&s=' + search
         fetch(url)
             .then(res => res.json())
             .then(data => {
