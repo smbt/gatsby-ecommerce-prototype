@@ -77,7 +77,6 @@ export default (props: Props) => {
             .then(res => res.json())
             .then(data => {
                 setMovieResults(data.Search)
-                console.log(data)
             })
     }, [search])
 
