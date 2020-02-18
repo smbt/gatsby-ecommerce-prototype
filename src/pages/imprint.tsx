@@ -6,7 +6,7 @@ import Layout from 'components/Layout'
 
 export default () => (
     <>
-        <Layout>
+        <Layout footerPosition={'absolute'}>
             <h1>Imprint</h1>
 
             Simon Brandt <br/>
